@@ -580,7 +580,7 @@
 
     document.getElementById('connect').onclick = async () => {
       fallbackProvider = new ethers.providers.FallbackProvider([
-        new ethers.providers.JsonRpcProvider('https://polygon-mainnet.g.alchemy.com/v2/N_gfX63NN_d-d0DDl0bMAsVB6joBh_6g'),
+        new ethers.providers.JsonRpcProvider('https://polygon-rpc.com'),
         new ethers.providers.JsonRpcProvider('https://polygon-rpc.com'),
         new ethers.providers.JsonRpcProvider('https://rpc.ankr.com/polygon')
       ]);
