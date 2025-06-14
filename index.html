@@ -579,11 +579,16 @@
     }
 
     document.getElementById('connect').onclick = async () => {
-      fallbackProvider = new ethers.providers.FallbackProvider([
-        new ethers.providers.JsonRpcProvider('https://polygon-rpc.com'),
-        new ethers.providers.JsonRpcProvider('https://polygon-rpc.com'),
-        new ethers.providers.JsonRpcProvider('https://rpc.ankr.com/polygon')
-      ]);
+     const polygonNetwork = {
+  name: "polygon",
+  chainId: 137,
+};
+
+fallbackProvider = new ethers.providers.FallbackProvider([
+  new ethers.providers.JsonRpcProvider('https://polygon-rpc.com', polygonNetwork),
+  new ethers.providers.JsonRpcProvider('https://rpc-mainnet.matic.network', polygonNetwork),
+  new ethers.providers.JsonRpcProvider('https://rpc.ankr.com/polygon', polygonNetwork),
+]);
 
       web3Provider = new ethers.providers.Web3Provider(window.ethereum);
       await web3Provider.send("eth_requestAccounts", []);
